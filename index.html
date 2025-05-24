@@ -43,6 +43,11 @@
   <script src="static/js/bulma-carousel.min.js"></script>
   <script src="static/js/bulma-slider.min.js"></script>
   <script src="static/js/index.js"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+   <script type="text/javascript" async
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+    </script>
+  
 </head>
 <body>
 
@@ -131,96 +136,264 @@
 <!-- End paper abstract -->
 
 
-<!-- Image carousel -->
+
+
 <section class="hero is-small">
   <div class="hero-body">
     <div class="container">
+      <!-- Image Carousel -->
       <div id="results-carousel" class="carousel results-carousel">
-       <div class="item">
-        <!-- Your image here -->
-        <img src="static/images/carousel1.jpg" alt="MY ALT TEXT"/>
-        <h2 class="subtitle has-text-centered">
-          First image description.
-        </h2>
-      </div>
-      <div class="item">
-        <!-- Your image here -->
-        <img src="static/images/carousel2.jpg" alt="MY ALT TEXT"/>
-        <h2 class="subtitle has-text-centered">
-          Second image description.
-        </h2>
-      </div>
-      <div class="item">
-        <!-- Your image here -->
-        <img src="static/images/carousel3.jpg" alt="MY ALT TEXT"/>
-        <h2 class="subtitle has-text-centered">
-         Third image description.
-       </h2>
-     </div>
-     <div class="item">
-      <!-- Your image here -->
-      <img src="static/images/carousel4.jpg" alt="MY ALT TEXT"/>
-      <h2 class="subtitle has-text-centered">
-        Fourth image description.
-      </h2>
-    </div>
-  </div>
-</div>
-</div>
-</section>
-<!-- End image carousel -->
+        <!-- First Image -->
+        <div class="item">
+          <img src="static/images/manicraft.png" alt="MY ALT TEXT" style="max-height: 400px; width: auto; display: block; margin: 0 auto;"/>
+          <h2 class="subtitle has-text-centered">
+            We introduce the ManiCraft benchmark to address the current lack of diverse multi-manipulation collaborative tasks in the MARL community. <strong>To the best of our knowledge, ManiCraft is the first benchmark specifically designed for collaborative manipulation tasks in MARL, with a focus on low-level policy learning.</strong>
+          </h2>
+        </div>
 
+        <!-- Second Image -->
+        <div class="item">
+          <img src="static/images/overview.png" alt="MY ALT TEXT" style="max-height: 400px; width: auto; display: block; margin: 0 auto;"/>
+          <h2 class="subtitle has-text-centered">
+            We propose an LLM-driven reward generation framework, ReMAC, which efficiently designs multi-agent reward functions that are competitive with or better than human-designed reward functions. ReMAC constructs a reward function population from <strong>both the agent-level and team-level perspectives</strong>, and optimizes these functions across three dimensions: skill, individual, and team, enabling efficient reward function optimization.
+          </h2>
+        </div>
 
-
-
-<!-- Youtube video -->
-<section class="hero is-small is-light">
-  <div class="hero-body">
-    <div class="container">
-      <!-- Paper video. -->
-      <h2 class="title is-3">Video Presentation</h2>
-      <div class="columns is-centered has-text-centered">
-        <div class="column is-four-fifths">
-          
-          <div class="publication-video">
-            <!-- Youtube embed code here -->
-            <iframe src="https://www.youtube.com/embed/JkaxUblCGz0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-          </div>
+        <!-- Third Image -->
+        <div class="item">
+          <img src="static/images/Summary.png" alt="MY ALT TEXT" style="max-height: 400px; width: auto; display: block; margin: 0 auto;"/>
+          <h2 class="subtitle has-text-centered">
+            Experimental results on ManiCraft show that <strong>ReMAC’s generated rewards outperform expert-designed reward functions, significantly improving both learning efficiency and final policy performance.</strong>
+          </h2>
         </div>
       </div>
     </div>
   </div>
 </section>
-<!-- End youtube video -->
+
+
+<!-- End image carousel -->
+<section class="section">
+<div class="container is-max-widescreen">
+    <div class="columns is-centered">
+        <div class="column is-full-width">
+            <img src="static/images/overview.png" alt="Benchmark Image" style="width: 100%">
+        </div>
+    </div>
+        <div class="columns is-centered">
+            <div class="column is-full-width">
+            <p style="font-size: 125%">
+                <h2 class="title is-3"><span class="dvima">ReMAC Framework</span></h2></p>
+
+                <p style="font-size: 125%">ReMAC leverages the extensive domain knowledge and coding capabilities of LLMs to generate structured reward functions for MARL. Specifically, the LLM first analyzes the individual skills required by each agent and the coordination demands at the team level. Based on this analysis, ReMAC constructs two types of rewards—agent-level and team-level—which are then combined to produce the final reward for each agent.</p>
+
+                <p style="font-size: 125%">To ensure high-quality reward design, we maintain a reward population \( \mathcal{P}_\text{R} \), where each individual comprises both agent- and team-level reward functions. For every reward function, we instantiate a corresponding MARL agent, forming a MARL population \( \mathcal{P}_\text{MARL} \). The team policies in \( \mathcal{P}_\text{MARL} \) interact with the environment to generate experiences. Each experience is then labeled with rewards by the reward population and stored in a shared replay buffer for learning.</p>
+
+                <p style="font-size: 125%" >At regular intervals, the best-performing team is summarized and fed back to the LLM, which reflects on the design from skill, individual, and team perspectives. Based on this reflection, the LLM generates improved reward functions to replace the suboptimal ones in \( \mathcal{P}_\text{R} \), which are then used for subsequent policy training.</p>
+            </div>
+        </div>
+    </div>
+
+</section>
+
+
+<!-- End image carousel -->
+<section class="section">
+<div class="container is-max-widescreen">
+    <div class="columns is-centered">
+        <div class="column is-full-width">
+            <img src="static/images/manicraft.png" alt="Benchmark Image" style="width: 100%">
+        </div>
+    </div>
+    <div class="columns is-centered">
+        <div class="column is-full-width">
+                <h2 class="title is-3"><span class="dvima">Multi-Agent Manipulation Benchmark ManiCraft</span></h2>
+                <p style="font-size: 125%">
+                    Recent advancements in the robotics field, particularly in embodied intelligence, have been remarkable. However, we observe that the MARL community lacks a benchmark for multi-agent manipulation tasks aimed at low-level collaborative policy learning.
+                </p>
+    
+                <p style="font-size: 125%">To bridge the gap, we propose <strong>ManiCraft</strong>, a benchmark that has the following key features:</p>
+                
+                <ul style="font-size: 125%">
+                    <li><i class="fas fa-star" style="margin-right: 10px;"></i><strong> Diverse MA-Manipulation Tasks</strong>: A diverse set of collaborative manipulation tasks designed to facilitate low-level coordination policy learning.</li>
+                    <li><i class="fas fa-star" style="margin-right: 10px;"></i><strong> Easy to Use &amp; Extend</strong>: Implemented following the Gym standard, with each task implemented in a single file, making it easy to use and extend.</li>
+                    <li><i class="fas fa-star" style="margin-right: 10px;"></i><strong> Fine-grained design for MARL</strong>: Carefully designed action space, state spaces, and reward functions to ensure each task is learnable by MARL algorithms.</li>
+                </ul>
+    
+                <p style="font-size: 125%">Specifically, ManiCraft is developed based on MuJoCo and utilizes MoCap for end-effector pose control. We design 11 manipulation collaborative tasks, which typically require the coordination of a UR robotic arm and a Franka Panda robotic arm, or the coordination of two UR robotic arms. Each robot is mounted on opposite sides of a table, with the target objects to be placed on the table.</p>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="hero-body">
+        <div class="container">
+            <!-- Use a flexbox container for the video gallery -->
+            <div class="columns is-multiline is-centered">
+                <!-- First Row -->
+                <div class="column is-one-third">
+                    <video autoplay controls muted loop width="100%" height="auto" playbackrate="2.0" style="border-radius: 5px;">
+                        <source src="static/videos/sweep_easy.mp4" type="video/mp4">
+                    </video>
+                </div>
+                <div class="column is-one-third">
+                    <video autoplay controls muted loop width="100%" height="auto" playbackrate="2.0" style="border-radius: 5px;">
+                        <source src="static/videos/Coopen_1.mp4" type="video/mp4">
+                    </video>
+                </div>
+                <div class="column is-one-third">
+                    <video autoplay controls muted loop width="100%" height="auto" playbackrate="2.0" style="border-radius: 5px;">
+                        <source src="static/videos/Copush_1.mp4" type="video/mp4">
+                    </video>
+                </div>
+
+                <!-- Second Row -->
+                <div class="column is-one-third">
+                    <video autoplay controls muted loop width="100%" height="auto" playbackrate="2.0" style="border-radius: 5px;">
+                        <source src="static/videos/CoStackon_2.mp4" type="video/mp4">
+                    </video>
+                </div>
+                <div class="column is-one-third">
+                    <video autoplay controls muted loop width="100%" height="auto" playbackrate="2.0" style="border-radius: 5px;">
+                        <source src="static/videos/CoClose_1.mp4" type="video/mp4">
+                    </video>
+                </div>
+                <div class="column is-one-third">
+                    <video autoplay controls muted loop width="100%" height="auto" playbackrate="2.0" style="border-radius: 5px;">
+                        <source src="static/videos/Co_pick.mp4" type="video/mp4">
+                    </video>
+                </div>
+
+                <!-- Third Row -->
+                <div class="column is-one-third">
+                    <video autoplay controls muted loop width="100%" height="auto" playbackrate="2.0" style="border-radius: 5px;">
+                        <source src="static/videos/Coopen_2.mp4" type="video/mp4">
+                    </video>
+                </div>
+                <div class="column is-one-third">
+                    <video autoplay controls muted loop width="100%" height="auto" playbackrate="2.0" style="border-radius: 5px;">
+                        <source src="static/videos/CoPlace.mp4" type="video/mp4">
+                    </video>
+                </div>
+                <div class="column is-one-third">
+                    <video autoplay controls muted loop width="100%" height="auto" playbackrate="2.0" style="border-radius: 5px;">
+                        <source src="static/videos/Cosweep_mid2.mp4" type="video/mp4">
+                    </video>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
 
 
 <!-- Video carousel -->
 <section class="hero is-small">
   <div class="hero-body">
     <div class="container">
-      <h2 class="title is-3">Another Carousel</h2>
+      <h2 class="title is-3"> Collaborative Policy Visualization</h2>
       <div id="results-carousel" class="carousel results-carousel">
         <div class="item item-video1">
           <video poster="" id="video1" autoplay controls muted loop height="100%">
             <!-- Your video file here -->
-            <source src="static/videos/carousel1.mp4"
+            <source src="static/videos/sweep_easy.mp4"
             type="video/mp4">
           </video>
         </div>
         <div class="item item-video2">
           <video poster="" id="video2" autoplay controls muted loop height="100%">
             <!-- Your video file here -->
-            <source src="static/videos/carousel2.mp4"
+            <source src="static/videos/Cosweep_mid2.mp4"
             type="video/mp4">
           </video>
         </div>
         <div class="item item-video3">
           <video poster="" id="video3" autoplay controls muted loop height="100%">\
             <!-- Your video file here -->
-            <source src="static/videos/carousel3.mp4"
+            <source src="static/videos/Coopen_1.mp4"
             type="video/mp4">
           </video>
         </div>
+        <div class="item item-video4">
+          <video poster="" id="video4" autoplay controls muted loop height="100%">\
+            <!-- Your video file here -->
+            <source src="static/videos/Coopen_2.mp4"
+            type="video/mp4">
+          </video>
+        </div>
+        
+        <div class="item item-video5">
+          <video poster="" id="video5" autoplay controls muted loop height="100%">\
+            <!-- Your video file here -->
+            <source src="static/videos/Coopen_1.mp4"
+            type="video/mp4">
+          </video>
+        </div>
+        
+        <div class="item item-video6">
+          <video poster="" id="video6" autoplay controls muted loop height="100%">\
+            <!-- Your video file here -->
+            <source src="static/videos/CoPlace.mp4"
+            type="video/mp4">
+          </video>
+        </div>
+        
+        <div class="item item-video7">
+          <video poster="" id="video7" autoplay controls muted loop height="100%">\
+            <!-- Your video file here -->
+            <source src="static/videos/CoTrans.mp4"
+            type="video/mp4">
+          </video>
+        </div>
+        
+        <div class="item item-video8">
+          <video poster="" id="video8" autoplay controls muted loop height="100%">\
+            <!-- Your video file here -->
+            <source src="static/videos/CoStackon.mp4"
+            type="video/mp4">
+          </video>
+        </div>
+              
+        <div class="item item-video9">
+          <video poster="" id="video9" autoplay controls muted loop height="100%">\
+            <!-- Your video file here -->
+            <source src="static/videos/CoStackon_2.mp4"
+            type="video/mp4">
+          </video>
+        </div>
+        
+        <div class="item item-video10">
+          <video poster="" id="video10" autoplay controls muted loop height="100%">\
+            <!-- Your video file here -->
+            <source src="static/videos/Co_pick.mp4"
+            type="video/mp4">
+          </video>
+        </div> 
+        
+        <div class="item item-video11">
+          <video poster="" id="video11" autoplay controls muted loop height="100%">\
+            <!-- Your video file here -->
+            <source src="static/videos/CoClose_1.mp4"
+            type="video/mp4">
+          </video>
+        </div> 
+        
+        <div class="item item-video12">
+          <video poster="" id="video12" autoplay controls muted loop height="100%">\
+            <!-- Your video file here -->
+            <source src="static/videos/Copush_1.mp4"
+            type="video/mp4">
+          </video>
+        </div> 
+        
+        <div class="item item-video13">
+          <video poster="" id="video13" autoplay controls muted loop height="100%">\
+            <!-- Your video file here -->
+            <source src="static/videos/Copush_2.mp4"
+            type="video/mp4">
+          </video>
+        </div> 
+        
       </div>
     </div>
   </div>
@@ -229,7 +402,42 @@
 
 
 
+ <section class="section">
+        <div class="container is-max-widescreen">
+            <div class="rows">
+                <div class="rows is-centered ">
+                    <div class="row is-full-width">
+                        <h2 class="title is-3"><span class="dvima">Experiments</span></h2>
+                        <p style="font-size: 125%">
+                            We thoroughly evaluate ReMAC and the baselines on ManiCraft to validate the effectiveness of ReMAC.
+                        </p>
+                        <br>
+                        <br>
+                        <br>
 
+                        <h3 class="title is-4"><span class="dvima">Evaluation Results</span></h3>
+
+                        <img src="static/images/summary.png" class="interpolation-image" alt="" style="display: block; margin-left: auto; margin-right: auto">
+                        <br>
+                        <span style="font-size: 125%">
+                            We first compare performance across 9 different tasks in the ManiCraft benchmark. <span style="font-weight: bold">ReMAC demonstrates performance on par with, and in some tasks superior to, MARL algorithms using human-designed reward functions</span>. The MARL algorithms trained with sparse rewards consistently fail to learn effective collaborative policies across all tasks.
+Besides, ReMAC outperforms the multi-agent extension of Eureka in both efficiency and performance. This advantage stems from two key factors: (i) the construction of reward functions from both agent-level and team-level perspectives, and (ii) the ability of ReMAC to more effectively leverage experience collected from different teams.
+                        </span>
+                        <br>
+                        <br>
+                        <br>
+
+                        <img src="static/images/learning_curves.png" class="interpolation-image" alt="" style="display: block; width: 100%; margin-left: auto; margin-right: auto">
+                        <br>
+                        <span style="font-size: 125%">
+                             <span style="font-weight: bold">ReMAC achieves sample efficiency comparable to or even better than that of manually designed reward functions</span>. MA-Eureka is only able to learn effective collaborative policies on relatively simple tasks, such as Co-Close. When the task difficulty increases even slightly, MA-Eureka tends to fail.
+                        </span>
+                        <br>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
 
 <!-- Paper poster -->
